@@ -60,12 +60,8 @@ class RgGui:
         self.quantity = 0
 
         self.CheckVar1 = tk.StringVar()
-        self.CheckVar2 = tk.StringVar()
         self.CheckVar3 = tk.StringVar()
-        self.CheckVar4 = tk.StringVar()
-        self.CheckVar5 = tk.StringVar()
-        self.CheckVar6 = tk.StringVar()
-        self.CheckVar7 = tk.StringVar()
+        self.CheckVar2 = tk.StringVar()
 
         # 显示
         self.load_dir()
@@ -141,7 +137,7 @@ class RgGui:
         self.search_but.config(state='disabled')
 
         if c1 and c2 and self.pathtxt.get() != "未选择文件或目录":
-            c3 = f'{self.rg_path} {c1} {self.bmm.get()} {self.CheckVar2.get()} {self.CheckVar3.get()} {self.CheckVar4.get()} {self.CheckVar6.get()} {self.pathtxt.get()} | {self.rg_path} {c2} {self.CheckVar1.get()} {self.CheckVar2.get()} {self.CheckVar4.get()} {self.CheckVar5.get()} {self.CheckVar7.get()} {self.bmm.get()}'
+            c3 = f'{self.rg_path} {c1} {self.bmm.get()} {self.pathtxt.get()} | {self.rg_path} {c2} {self.CheckVar1.get()} {self.CheckVar3.get()} {self.CheckVar2.get()} {self.bmm.get()}'
             self.cmd_3.set(c3)
 
             self.t1 = threading.Thread(
@@ -149,7 +145,7 @@ class RgGui:
             self.t1.start()
 
         elif c1 and self.pathtxt.get() != "未选择文件或目录":
-            c3 = f'{self.rg_path} {c1} {self.bmm.get()} {self.CheckVar1.get()} {self.CheckVar2.get()} {self.CheckVar3.get()} {self.CheckVar4.get()} {self.CheckVar5.get()} {self.CheckVar6.get()} {self.CheckVar7.get()} {self.pathtxt.get()}'
+            c3 = f'{self.rg_path} {c1} {self.bmm.get()} {self.CheckVar1.get()} {self.CheckVar3.get()} {self.CheckVar2.get()} {self.pathtxt.get()}'
             self.cmd_3.set(c3)
 
             self.t1 = threading.Thread(
@@ -277,26 +273,16 @@ class RgGui:
         n = tk.Checkbutton(op, text="-n:显示行号", bg='#5CACEE',
                            variable=self.CheckVar1, onvalue='-n', offvalue='')
         n.grid(row=1, column=0, padx=1, pady=1,)
-        S = tk.Checkbutton(op, text="-S:智能大小写", bg='#5CACEE',
-                           variable=self.CheckVar2, onvalue='-S', offvalue='')
-        S.grid(row=2, column=0, padx=1, pady=1)
-        U = tk.Checkbutton(op, text="-U:跨多行搜索", bg='#5CACEE',
-                           variable=self.CheckVar3, onvalue='-U', offvalue='')
-        U.grid(row=3, column=0, padx=1, pady=1)
-        i = tk.Checkbutton(op, text="-i:不区分大小写", bg='#5CACEE',
-                           variable=self.CheckVar4, onvalue='-i', offvalue='')
-        i.grid(row=4, column=0, padx=1, pady=1)
 
         I = tk.Checkbutton(op, text="-I:不显示文件路径", bg='#5CACEE',
-                           variable=self.CheckVar7, onvalue='-I', offvalue='')
+                           variable=self.CheckVar2, onvalue='-I', offvalue='')
         I.grid(row=5, column=0, padx=1, pady=1)        
 
         stats = tk.Checkbutton(op, text="--stats:搜索统计信息", bg='#5CACEE',
-                               variable=self.CheckVar5, onvalue='--stats', offvalue='')
+                               variable=self.CheckVar3, onvalue='--stats', offvalue='')
         stats.grid(row=6, column=0, padx=1, pady=1)
-        a = tk.Checkbutton(op, text="-a:二进制文件转文本搜索", bg='#5CACEE',
-                           variable=self.CheckVar6, onvalue='-I', offvalue='')
-        a.grid(row=7, column=0, padx=1, pady=1)
+        
+     
        
 
 
